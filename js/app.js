@@ -8,47 +8,49 @@
 //     - verificare della condizione
 //     - eseguire tutto il codice delle graffe
 
-const gridDOMElement = document.querySelector('.grid')
-console.log(gridDOMElement)
+const gridDOMElement = document.querySelector('.grid');
+console.log(gridDOMElement);
 
 for (let i = 0; i < 100; i++) {
     const n = i + 1;
     // console.log(n)
     
-    const mult3 = n % 3;
-    
-    const mult5 = n % 5;
 
     // Aggiungi Stringa
     // const boxString = '<div class="box">' + n + '</div>' 
     // gridDOMElement.innerHTML += boxString
 
     // Creazione oggetti
-    const boxDomElement = document.createElement('div');
-    boxDomElement.classList.add('box')
-    boxDomElement.innerHTML = n
+    // const boxDomElement = document.createElement('div');
+    // boxDomElement.classList.add('box')
+    // boxDomElement.innerHTML = n
+    // gridDOMElement.append(boxDomElement)
 
-    gridDOMElement.append(boxDomElement)
-
+    let stamp 
     // multipli di 3 che coincidono con multipli di 5
-    if (mult3 === 0 && mult5 === 0) {
-    
+    if (n % 3 === 0 && n % 5 === 0) {
         console.log('fizzbuzz');
+        stamp = 'fizzbuzz';
+
     }
     // multipli di 3
-    else if (mult3 === 0) {
-        
+    else if (n % 3 === 0) {
         console.log('fizz');
+        stamp = 'fizz'       
     }
     // multipli di 5
-    else if (mult5 === 0) {
-        
+    else if (n % 5 === 0) {
         console.log('buzz');
+        stamp = 'buzz'   
     }
     // numeri normali
     else {
-        console.log(n)
+        console.log(n);
+        stamp = n;
     }
     
-    
+    const boxDomElement = document.createElement('div');
+    boxDomElement.classList.add('box');
+    gridDOMElement.append(boxDomElement);
+    boxDomElement.innerHTML = stamp;
 }
